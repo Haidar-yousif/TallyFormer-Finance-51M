@@ -1,16 +1,73 @@
-# React + Vite
+# TallyFormer Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple frontend application built to interact with the **TallyFormer LLM API**.  
+It provides a user interface to send prompts and receive generated text from the backend models.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Backend API Overview
 
-## React Compiler
+The frontend communicates with a FastAPI backend that exposes the following endpoints:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🔹 Welcome Endpoint
+**GET** `/welcome`
 
-## Expanding the ESLint configuration
+Returns basic information about the loaded model.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Example response:
+```
+{
+  "message": "Welcome to TallyFormer LLM inference API!",
+  "model_name": "TallyFormer",
+  "model_size": "51M parameters",
+  "context_length": 256,
+  "layers": 8,
+  "heads": 8,
+  "hidden_dim": 512
+} 
+``` 
+
+### 🔹 Text Generation Endpoint
+POST /generate,
+Generates text based on a user prompt and inference parameters.
+
+Request Body
+```
+{
+  "prompt": "Explain what inflation is",
+  "model_name": "sft",
+  "max_new_tokens": 50,
+  "temperature": 0.7,
+  "topk": 500,
+  "topp": 0.9,
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "mode": "combined",
+  "return_metrics": false
+}
+```
+Response
+```
+{
+  "generated_text": "Inflation is an economic phenomenon where..."
+}
+```
+If return_metrics is enabled, performance metrics are also returned.
+
+
+
+## 🛠 Frontend Responsibilities
+The frontend should:
+
+- Collect user prompts
+
+- Allow model and parameter selection
+
+- Send requests to /generate
+
+- Display generated text
+
+- Optionally display inference metrics
+
+## 📌 Notes
+Ensure the backend server is running before starting the frontend.
