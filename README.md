@@ -287,3 +287,7 @@ Please open an issue or submit a pull request with a clear description.
 - Training platform: Pod.ai (RTX A6000)
 
 TallyFormer-Finance-51M demonstrates a complete, transparent, and scalable approach to building domain-specific language models from scratch.
+
+## 🔗 Connect
+
+[Haidar Ali YOUSEF on LinkedIn](https://www.linkedin.com/in/haidar-ali-yousef-815018231/)
