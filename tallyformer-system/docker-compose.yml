@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  tallyformer-api:
+    image: haidaryousif/tallyformer-api:latest
+    container_name: tallyformer-api
+    ports:
+      - "8000:8000"
+
+  tallyformer-frontend:
+    image: haidaryousif/tallyformer-frontend:latest
+    container_name: tallyformer-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - tallyformer-api
+    environment:
+      - VITE_API_URL=http://tallyformer-api:8000

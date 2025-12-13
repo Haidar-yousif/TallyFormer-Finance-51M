@@ -1,0 +1,13 @@
+# Core scientific / ML
+numpy
+torch>=2.1.0
+transformers>=4.35.0
+tokenizers>=0.14.3
+# Utilities
+pydantic>=2.3.0
+rich>=13.6.0
+tqdm>=4.66.0
+# Web API
+fastapi>=0.110.0
+uvicorn>=0.29.0
+# to test the api locally run > uvicorn app:app --reload

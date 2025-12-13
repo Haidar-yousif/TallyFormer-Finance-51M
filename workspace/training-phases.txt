@@ -1,0 +1,7 @@
+# Pretraining :1.3B Tokens
+{'epoch':60,'time':'1.1H/epoch'},
+# Destillation : 0.7B Tokens
+{'temperature': 2.5, 'alpha': 0.7, 'teacher': 'gpt2-medium','epoch':19,'lr':2.5e-4,'time':'2.46H/epoch'},
+{'temperature': 3.0, 'alpha': 0.4, 'teacher': 'gpt2-medium','epoch':11,'lr':2e-4,'time':'2.46H/epoch'},
+# SFT using LoRA
+{'epoch':3,'time':'5min/epoch'}
