@@ -39,6 +39,8 @@ Although designed primarily for **educational and research use**, the architectu
   - 50 GB RAM, 8 vCPU
   - Pod.ai platform
 
+![Transformer Architecture](assets/Model-Architecture.png)
+
 ---
 
 ## 📂 Repository Structure
@@ -67,6 +69,8 @@ tallyformer-system/ # Production deployment
 
 
 ## 📊 Training Pipeline & Results
+
+![Training Stages](assets/Training-Stages.png)
 
 ### 1️⃣ Pretraining (Continual Pretraining)
 - **Tokens seen**: ~1.3B
@@ -245,13 +249,6 @@ Basic inference benchmarks were conducted to evaluate **latency and throughput**
 - Throughput scales predictably with instance utilization until saturation
 
 All benchmark outputs, logs, and summary tables are stored in: workspace/benchmark_inference_reports/
-
-
-
-
-
-
-
 
 ## 🎓 Purpose & Scope
 This project was developed primarily for learning and research, demonstrating:
