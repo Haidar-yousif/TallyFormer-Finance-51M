@@ -1,11 +1,12 @@
 # TallyFormer-Finance-51M
 
-**TallyFormer-Finance-51M** is a compact, efficient **51-million-parameter decoder-only transformer language model**, built entirely from scratch for **learning, experimentation, and research purposes**, while still achieving **strong and competitive results** in financial language understanding.
+**TallyFormer-Finance-51M** is a **51-million-parameter decoder-only transformer language model**, built entirely from scratch for **learning, experimentation, and research purposes**.
 
 The project demonstrates a **fully end-to-end, scalable LLM pipeline**:  
 from large-scale data preprocessing → multi-stage training → optimized inference → containerized deployment.
 
-Although designed primarily for **educational and research use**, the architecture, training code, and deployment stack are **production-ready and fully scalable**.
+The architecture, training code, and deployment stack are **designed to be modular and scalable** for experimentation and research purposes.
+
 
 ---
 
@@ -87,6 +88,8 @@ tallyformer-system/ # Production deployment
   - Time per epoch: ~1.1 hours
 - **Result**: Validation perplexity = **39.0**
 
+![Pretraining Loss & Perplexity](assets/Pretraining_Metrics.png)
+
 Checkpoint:
 PreTrainResult/pretrain_tallyformer.pth
 
@@ -118,11 +121,12 @@ PreTrainResult/pretrain_tallyformer.pth
 - Scheduler: OneCycleLR 
 - Time per epoch: ~2.46 hours 
 
-**Final validation perplexity: 38.0**
+**Final validation perplexity: 38.5**
 
 Checkpoint:
 DistillationResult/tallyformer-distilled-phase2.pth
 
+![Knowledge Distillation Metrics](assets/KD_Metrics.png)
 
 ---
 
@@ -257,7 +261,8 @@ This project was developed primarily for learning and research, demonstrating:
 - How to scale data pipelines and training stages
 - How to deploy models end-to-end with Docker
 
-Despite its educational goal, TallyFormer-Finance-51M achieves good results and serves as a solid foundation for further research or production adaptation.
+The project serves as a reference implementation for learning and research on building, training, and deploying domain-specific language models.
+
 
 ---
 ## 🤝 Contributing
