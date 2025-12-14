@@ -179,8 +179,8 @@ docker compose up -d
 - API docs: http://localhost:8000/docs
 
 You can also pull the prebuilt Docker images directly from Docker Hub:
-- [API:](https://hub.docker.com/r/haidaryousif/tallyformer-api)
-- [Frontend:](https://hub.docker.com/r/haidaryousif/tallyformer-frontend)
+- [API](https://hub.docker.com/r/haidaryousif/tallyformer-api)
+- [Frontend](https://hub.docker.com/r/haidaryousif/tallyformer-frontend)
 
 
 
