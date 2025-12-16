@@ -1,3 +1,5 @@
+![TallyFormer Logo](assets/TallyFormer-Icon.png)
+
 # TallyFormer-Finance-51M
 
 **TallyFormer-Finance-51M** is a **51-million-parameter decoder-only transformer language model**, built entirely from scratch for **learning, experimentation, and research purposes**.
@@ -68,6 +70,10 @@ tallyformer-system/ # Production deployment
 
 └── docker-compose.yml # One-command deployment
 
+
+## 🎬 Demo
+
+A small frontend demo of TallyFormer-Finance-51M is available in the `assets/` folder.
 
 ## 📊 Training Pipeline & Results
 
