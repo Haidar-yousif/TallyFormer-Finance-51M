@@ -93,6 +93,15 @@ tallyformer-system/ # Production deployment
 Checkpoint:
 PreTrainResult/pretrain_tallyformer.pth
 
+#### Training Loss:
+Here the TallyFormer is trained using standard cross-entropy loss with an additional z-loss regularization term.
+
+![Loss_Formula](assets/pretraining_loss.png)
+
+##### Reference
+Chowdhery et al., *PaLM: Scaling Language Modeling with Pathways*  
+https://arxiv.org/abs/2204.02311
+
 ---
 
 ### 2️⃣ Knowledge Distillation
@@ -128,6 +137,23 @@ DistillationResult/tallyformer-distilled-phase2.pth
 
 ![Knowledge Distillation Metrics](assets/KD_Metrics.png)
 
+#### Training Loss
+During distillation, TallyFormer is trained to mimic a teacher model (`gpt2-medium`) using a **combination of cross-entropy and KL-divergence losses**.
+
+![Loss_Formula](assets/kd_loss.png)
+
+##### Summary
+
+- Cross-entropy encourages **fidelity to ground-truth tokens**  
+- KL-divergence encourages the student to **mimic the teacher distribution**  
+- Temperature softening allows learning from teacher's confidence distribution  
+- Only valid (non-masked) tokens contribute to the loss
+
+##### Reference
+
+- Hinton et al., *Distilling the Knowledge in a Neural Network*, 2015  
+  https://arxiv.org/abs/1503.02531
+  
 ---
 
 ### 3️⃣ Supervised Fine-Tuning (SFT)
@@ -146,6 +172,17 @@ DistillationResult/tallyformer-distilled-phase2.pth
 - **Result**: Validation perplexity on held-out QA data = **13.0**
 
 LoRA adapter saved → merged into base distilled model → final clean checkpoint in TallyFormer-Finance-51M/
+
+#### Training Loss
+During SFT, TallyFormer-Finance-51M is trained on **finance instruction-response pairs** using a **masked cross-entropy loss** with optional **z-loss regularization**.
+
+![Loss_Formula](assets/sft_loss.png)
+
+##### Summary
+
+- **Prompt tokens are masked** and do not contribute to the loss  
+- **z-loss** prevents logits from growing too large and stabilizes training  
+- Loss is computed **per token** and averaged over the batch  
 
 ---
 
